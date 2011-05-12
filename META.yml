@@ -1,0 +1,22 @@
+--- #YAML:1.0
+name:                Finance-Bank-US-ShareBuilder
+version:             0.01
+abstract:            Check positions and transactions for US ShareBuilder investment accounts
+license:             perl
+author:              
+    - Steven N. Severinghaus <sns-perl@severinghaus.org>
+generated_by:        ExtUtils::MakeMaker version 6.42
+distribution_type:   module
+requires:     
+    Data::Dumper:                  0
+    Date::Parse:                   0
+    DateTime:                      0
+    Finance::OFX::Parse:           0
+    HTML::TableExtract:            0
+    HTTP::Cookies:                 0
+    Locale::Currency::Format:      0
+    LWP::UserAgent:                0
+    Test::More:                    0
+meta-spec:
+    url:     http://module-build.sourceforge.net/META-spec-v1.3.html
+    version: 1.3
