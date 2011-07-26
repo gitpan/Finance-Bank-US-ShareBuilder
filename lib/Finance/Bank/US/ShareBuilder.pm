@@ -24,7 +24,7 @@ Version 0.01
 
 =cut
 
-our $VERSION = '0.01';
+our $VERSION = '0.01.1';
 
 =head1 SYNOPSIS
 
@@ -87,8 +87,8 @@ sub _login {
     $self->{ua}->default_header(Referer => "$base/authentication/signin.aspx");
     $response = $self->{ua}->post("$base/authentication/signin.aspx", [
         $self->_get_asp_junk,
-        'ctl00$ctl00$MainContent$MainContent$ucView$c$views$c$ucUsername$ctl01$txtUsername' => $self->{username},
-        'ctl00$ctl00$MainContent$MainContent$ucView$c$views$c$ucUsername$ctl01$btnSignIn' => 'ctl00$ctl00$MainContent$MainContent$ucView$c$views$c$ucUsername$ctl01$btnSignIn',
+        'ctl00$ctl00$MainContent$MainContent$ucView$c$views$c$ucUsername$ctl00$txtUsername' => $self->{username},
+        'ctl00$ctl00$MainContent$MainContent$ucView$c$views$c$ucUsername$ctl00$btnSignIn' => 'ctl00$ctl00$MainContent$MainContent$ucView$c$views$c$ucUsername$ctl00$btnSignIn',
     ]);
     $self->_update_asp_junk($response);
 
@@ -319,6 +319,8 @@ sub transactions {
 
     $to   = $to   ? DateTime->from_epoch(epoch => str2time($to))   : DateTime->today;
     $from = $from ? DateTime->from_epoch(epoch => str2time($from)) : $to->clone->add(months => -3);
+
+    $to = $to->add(days => 1);
 
     my $response = $self->{ua}->get("$base/Account/Records/History.aspx");
     $self->_update_asp_junk($response);
