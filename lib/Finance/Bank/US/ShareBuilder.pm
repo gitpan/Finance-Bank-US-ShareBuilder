@@ -20,11 +20,11 @@ Finance::Bank::US::ShareBuilder - Check positions and transactions for US ShareB
 
 =head1 VERSION
 
-Version 0.01
+Version 0.01.3
 
 =cut
 
-our $VERSION = '0.01.2';
+our $VERSION = '0.01.3';
 
 =head1 SYNOPSIS
 
@@ -329,7 +329,7 @@ sub transactions {
 
     $self->{ua}->default_header(Referer => "$base/Account/Records/History.aspx");
     $response = $self->{ua}->post("$base/Account/Records/History.aspx", [
-        $c.'ddlAccount' => $account,
+        $c.'ddlAccountList' => $account,
         $c.'txtDateRange' => $from->mdy('/').' to '.$to->mdy('/'),
         $c.'ddlShow' => 'ALL',
         $c.'btnView' => 'ctl00$ctl00$MainContent$MainContent$uc',
@@ -473,7 +473,7 @@ This version by Steven N. Severinghaus <sns-perl@severinghaus.org>
 
 =head1 COPYRIGHT
 
-Copyright (c) 2011 Steven N. Severinghaus. All rights reserved. This
+Copyright (c) 2012 Steven N. Severinghaus. All rights reserved. This
 program is free software; you can redistribute it and/or modify it under
 the same terms as Perl itself.
 

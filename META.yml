@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               Finance-Bank-US-ShareBuilder
-version:            0.01.2
+version:            0.01.3
 abstract:           Check positions and transactions for US ShareBuilder investment accounts
 author:
     - Steven N. Severinghaus <sns-perl@severinghaus.org>
